@@ -1,7 +1,5 @@
 package Journal;
 
-import java.util.Scanner;
-
 public class Redacteur implements Runnable {
 
 	private String nom;
@@ -48,24 +46,6 @@ public class Redacteur implements Runnable {
 	
 //	Methodes
 	
-
-	
-
-	public void newArticle() throws ExceptionArticle{
-		Scanner s = new Scanner(System.in);
-		System.out.println("Date de parution de l'article: (xx/xx/xxxx)");
-		String date = s.nextLine();
-		System.out.println("Titre de l'article:");
-		String titre = s.nextLine();
-		System.out.println("Sujet de l'article:");
-		String sujet = s.nextLine();
-		System.out.println("Contenu de l'article:");
-		String contenu = s.nextLine();
-		
-		Article articleN = new Article(date, titre, sujet, contenu, getNom(), getPrenom());
-		this.journal.addArticle(articleN);
-	}
-	
 	public String toString() {
 		return "Redacteur [nom=" + nom + ", prenom=" + prenom + "]";
 	}
@@ -79,7 +59,8 @@ public class Redacteur implements Runnable {
 
 		}
 		try {
-			newArticle();
+			Article article1 = new Article("04/06/2021", "Les chaussons aux pommes", "Nourriture", "En vrai c'est pas dingue.", getNom(), getPrenom());
+			this.journal.addArticle(article1);
 		} catch (ExceptionArticle e) {
 			e.printStackTrace();
 		}
@@ -89,7 +70,8 @@ public class Redacteur implements Runnable {
 
 		}
 		try {
-			newArticle();
+			Article article2 = new Article("04/06/2021", "Les profiterolles", "Nourriture", "Ca par contre c'est délicieux.", getNom(), getPrenom());
+			this.journal.addArticle(article2);
 		} catch (ExceptionArticle e) {
 			e.printStackTrace();
 		}
@@ -99,9 +81,11 @@ public class Redacteur implements Runnable {
 
 		}
 		try {
-			newArticle();
+			Article article3 = new Article("04/06/2021", "Les pains aux raisins", "Nourriture", "J'aime pas du tout.", getNom(), getPrenom());
+			this.journal.addArticle(article3);
 		} catch (ExceptionArticle e) {
 			e.printStackTrace();
 		}
+		
 	}
 }
